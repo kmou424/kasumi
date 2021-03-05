@@ -87,18 +87,6 @@ void Terminal::setRootIdentifier(){
         root_identifier = '$';
 }
 
-void Terminal::execCommand(){
-	if(argc > 1){
-		system(cmd_s);
-	} else if(argc == 1){
-		if(!strcmp(argv[0], KASUMI_CMD_EXIT)){
-			exit(0);
-		} else {
-			system(argv[0]);
-		}
-	}
-}
-
 void Terminal::processCommand(){
 	int len = strlen(cmd_s);
 	cmd_s[len - 1] = ' ';
