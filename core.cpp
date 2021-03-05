@@ -7,6 +7,8 @@
 #include <string>
 #include <unistd.h>
 
+#include "constants.h"
+
 using namespace std;
 
 #define COMMAND_PARAMETERS_MAX 64
@@ -49,8 +51,12 @@ void Terminal::setRootIdentifier(){
 }
 
 void Terminal::execCommand(){
-	if(argc > 0 && strcmp(argv[0], "exit") == 0){
-		exit(0);
+	if(argc > 1){
+		
+	} else if(argc == 1){
+		if(!strcmp(argv[0], KASUMI_CMD_EXIT)){
+			exit(0);
+		}
 	}
 }
 
