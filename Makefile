@@ -1,6 +1,7 @@
 defined = $(findstring $(1), y)
 CC := clang
 CXXFLAGS += -lstdc++ -O2 -Werror
+INC = -I ./include
 
 ifeq ($(RELEASE), y)
 	DEFINE = -D
@@ -17,7 +18,7 @@ all: build
 
 build:
 	@if [ ! -d "out" ]; then mkdir out; fi
-	$(CC) $(SRCS) -o $(OUT) $(CXXFLAGS) $(DEFINE)
+	$(CC) $(SRCS) -o $(OUT) $(CXXFLAGS) $(INC) $(DEFINE)
 
 clean:
 	rm out/kasumi*
