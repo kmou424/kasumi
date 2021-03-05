@@ -1,7 +1,7 @@
 defined = $(findstring $(1), y)
 CC := clang
 CXXFLAGS += -lstdc++ -O2 -Werror
-INC = -I ./include
+INC = -I ./include -I ./modules
 
 ifeq ($(RELEASE), y)
 	DEFINE = -D

@@ -8,6 +8,7 @@
 #include <unistd.h>
 
 #include <constants.h>
+#include <module.cpp>
 
 using namespace std;
 
@@ -18,17 +19,21 @@ class Terminal{
 		char *argv[COMMAND_PARAMETERS_MAX];
 		char cmd_s[COMMAND_LENGTH_MAX];
 		char root_identifier;
+	private:
+		Module m;
 	public:
 		void launchTerminal();
 	private:
 		void welcomeToKasumi();
 		void setRootIdentifier();
+		void prepareVariables();
 		void processCommand();
 		void execCommand();
 };
 
 void Terminal::launchTerminal(){
 	welcomeToKasumi();
+	prepareVariables();
 	while (true){
 		setRootIdentifier();
 		printf("\033[31m♡kasumi♡ \033[m %c ~> ", root_identifier);

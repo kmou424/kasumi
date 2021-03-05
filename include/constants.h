@@ -13,4 +13,8 @@
 #define COMMAND_LENGTH_MAX 256
 
 // kasumi command constants
+#define KASUMI_CMD_MODULE "kmod"
+#define KASUMI_CMD_MODULE_IS_ENABLED "isEnabled"
+#define KASUMI_CMD_MODULE_SET_ENABLE "setEnable"
+#define KASUMI_CMD_MODULE_GET_LIST "getModulesList"
 #define KASUMI_CMD_EXIT "exit"
