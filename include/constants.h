@@ -2,6 +2,12 @@
 #define KASUMI_VERSION "1.0"
 #define KASUMI_SUBVERSION "1"
 
+#ifdef KASUMI_RELEASE_BUILD
+	#define KASUMI_BUILD_TYPE "Release";
+#else
+	#define KASUMI_BUILD_TYPE "Debug";
+#endif
+
 // kasumi runtime constants
 #define COMMAND_PARAMETERS_MAX 64
 #define COMMAND_LENGTH_MAX 256

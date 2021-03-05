@@ -62,11 +62,7 @@ void Terminal::welcomeToKasumi(){
 	header = header + "┐";
 	footer = footer + "┘";
 	version = "│ Version: " + (string)KASUMI_VERSION + "." + (string)KASUMI_SUBVERSION;
-	#ifdef KASUMI_RELEASE_BUILD
-		build_type = "│ Build type: Release";
-	#else
-		build_type = "│ Build type: Debug";
-	#endif
+	build_type = "│ Build type: " + (string)KASUMI_BUILD_TYPE;
 	version_len = version.size();
 	build_type_len = build_type.size();
 	for(int i = 0; i < all_len - version_len + 2; i++){
