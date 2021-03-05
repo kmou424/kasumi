@@ -1,6 +1,6 @@
 // kasumi attrs
 #define KASUMI_VERSION "1.0"
-#define KASUMI_SUBVERSION "1"
+#define KASUMI_SUBVERSION "2"
 
 #ifdef KASUMI_RELEASE_BUILD
 	#define KASUMI_BUILD_TYPE "Release";
