@@ -1,10 +1,13 @@
+defined = $(findstring $(1), y)
 CC := clang
 CXXFLAGS += -lstdc++ -O2 -Werror
 
-ifdef RELEASE
-	DEFINE = -D KASUMI_RELEASE_BUILD
-else
-	DEFINE =
+ifeq ($(RELEASE), y)
+	DEFINE = -D
+endif
+
+ifeq ($(RELEASE), y)
+	DEFINE += KASUMI_RELEASE_BUILD
 endif
 
 SRCS = kasumi.cpp
