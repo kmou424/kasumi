@@ -1,4 +1,4 @@
-#include "core.cpp"
+#include "core/core.cpp"
 
 int main(int argc,char *argv[]){
 	Terminal msg;
