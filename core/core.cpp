@@ -10,6 +10,8 @@
 #include <constants.h>
 #include <module.cpp>
 
+#include "utils.cpp"
+
 using namespace std;
 
 class Terminal{
