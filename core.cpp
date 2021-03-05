@@ -32,7 +32,7 @@ class Terminal{
 void Terminal::launchTerminal(){
 	while (true){
 		setRootIdentifier();
-		printf("\033[31m♡kasumi♡ \033[37m %c ~> ", root_identifier);
+		printf("\033[31m♡kasumi♡ \033[m %c ~> ", root_identifier);
 		char *res = NULL;
 		res = fgets(cmd_s, COMMAND_LENGTH_MAX - 1, stdin);
 		if (res == NULL && ferror(stdin)){
