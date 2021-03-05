@@ -1,5 +1,5 @@
 CC := clang
-CXXFLAGS += -lstdc++ -O2
+CXXFLAGS += -lstdc++ -O2 -Werror
 
 ifdef RELEASE
 	DEFINE = -D KASUMI_RELEASE_BUILD
