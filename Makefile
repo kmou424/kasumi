@@ -1,10 +1,20 @@
-all:
-	@if [ ! -d "out" ]; then mkdir out; fi
-	clang kasumi.cpp -o out/kasumi -lstdc++
+CC := clang
+CXXFLAGS += -lstdc++
 
-release:
+ifdef RELEASE
+	DEFINE = -D KASUMI_RELEASE_BUILD
+else
+	DEFINE =
+endif
+
+SRCS = kasumi.cpp
+OUT = out/kasumi
+
+all: build
+
+build:
 	@if [ ! -d "out" ]; then mkdir out; fi
-	clang kasumi.cpp -o out/kasumi -lstdc++ -D KASUMI_RELEASE_BUILD
+	$(CC) $(SRCS) -o $(OUT) $(CXXFLAGS) $(DEFINE)
 
 clean:
 	rm out/kasumi*
