@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
+#include <unistd.h>
 
 using namespace std;
 
@@ -13,19 +14,23 @@ using namespace std;
 
 class Terminal{
 	public:
+		// init variables
 		int argc;
 		char *argv[COMMAND_PARAMETERS_MAX];
 		char cmd_s[COMMAND_LENGTH_MAX];
+		char root_identifier;
 	public:
 		void launchTerminal();
 	private:
+		void setRootIdentifier();
 		void processCommand();
 		void execCommand();
 };
 
 void Terminal::launchTerminal(){
 	while (true){
-		printf("\033[31m♡kasumi♡ \033[37m~> ");
+		setRootIdentifier();
+		printf("\033[31m♡kasumi♡ \033[37m %c ~> ", root_identifier);
 		char *res = NULL;
 		res = fgets(cmd_s, COMMAND_LENGTH_MAX - 1, stdin);
 		if (res == NULL && ferror(stdin)){
@@ -34,6 +39,13 @@ void Terminal::launchTerminal(){
 		processCommand();
 		execCommand();
 	}
+}
+
+void Terminal::setRootIdentifier(){
+	if (geteuid() == 0)
+        root_identifier = '#';
+    else
+        root_identifier = '$';
 }
 
 void Terminal::execCommand(){
