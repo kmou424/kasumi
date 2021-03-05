@@ -11,9 +11,6 @@
 
 using namespace std;
 
-#define COMMAND_PARAMETERS_MAX 64
-#define COMMAND_LENGTH_MAX 256
-
 class Terminal{
 	public:
 		// init variables
