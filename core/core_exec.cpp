@@ -7,32 +7,26 @@ void Terminal::execCommand(){
 	if(argc > 1){
 		if(!strcmp(argv[0], KASUMI_CMD_MODULE)){
 			if(is_root){
-				switch(argc){
-					case 2:
-						if(!strcmp(argv[1], KASUMI_CMD_MODULE_IS_ENABLED)){
-							printf("%d\n", m.isEnabled());
-						} else if (!strcmp(argv[1], KASUMI_CMD_MODULE_GET_LIST)){
-							m.getModulesList();
-						} else {
-							printCommandNotFoundError(argv[1]);
-						}
-						break;
-					case 3:
-						if(!strcmp(argv[1], KASUMI_CMD_MODULE_SET_ENABLE)){
-							int enable;
+				if(!strcmp(argv[1], KASUMI_CMD_MODULE_IS_ENABLED) && argc == 2){
+					printf("%d\n", m.isEnabled());
+				} else if (!strcmp(argv[1], KASUMI_CMD_MODULE_GET_LIST) && argc == 2){
+					m.getModulesList();
+				} else if(!strcmp(argv[1], KASUMI_CMD_MODULE_SET_ENABLE)){
+					switch(argc){
+						case 2:
+							printErrorHeader();
+							printf("You must type 0/1 to enable/disable Module feature after \"%s\"\n", KASUMI_CMD_MODULE_SET_ENABLE);
+							break;
+						case 3:
 							if(!strcmp(argv[2], "0")){
-								enable = 0;
-							} else {
-								enable = 1;
+								m.setEnable(MODULES_DISABLED);
+							} else if(!strcmp(argv[2], "1")){
+								m.setEnable(MODULES_ENABLED);
 							}
-							m.setEnable(enable);
-						} else {
-							printCommandNotFoundError(argv[1]);
-						}
-						break;
-					default:
-						printCommandNotFoundError(argv[1]);
-						break;
+							break;
+					}
+				} else {
+					printCommandNotFoundError(argv[1]);
 				}
 			} else {
 				printNotExecInRootError(argv[0]);
