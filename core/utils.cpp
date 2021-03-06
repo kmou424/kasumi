@@ -8,3 +8,7 @@ void printCommandNotFoundError(char *command){
 	printErrorHeader();
 	printf("Command or parameter \"%s\" is not available\n", command);
 }
+void printNotExecInRootError(char *command){
+	printErrorHeader();
+	printf("Command or parameter \"%s\" must running in root\n", command);
+}
