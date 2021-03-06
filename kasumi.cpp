@@ -35,7 +35,7 @@ void Terminal::execCommand(){
 					break;
 			}
 		} else {
-			system(cmd_s);
+			printCommandNotFoundError(argv[1]);
 		}
 	} else if(argc == 1){
 		if(!strcmp(argv[0], KASUMI_CMD_EXIT)){
@@ -43,7 +43,7 @@ void Terminal::execCommand(){
 		} else if(!strcmp(argv[0], KASUMI_CMD_MODULE)){
 			//m.printHelp();
 		} else {
-			system(argv[0]);
+			printCommandNotFoundError(argv[0]);
 		}
 	}
 }
