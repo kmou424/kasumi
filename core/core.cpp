@@ -25,6 +25,7 @@ class Terminal{
 		Module m;
 	public:
 		void launchTerminal();
+		bool isRoot();
 	private:
 		void welcomeToKasumi();
 		void setRootIdentifier();
@@ -47,6 +48,13 @@ void Terminal::launchTerminal(){
 		processCommand();
 		execCommand();
 	}
+}
+
+bool Terminal::isRoot(){
+	if (geteuid() == 0)
+        return true;
+    else
+        return false;
 }
 
 void Terminal::welcomeToKasumi(){
@@ -84,7 +92,7 @@ void Terminal::welcomeToKasumi(){
 }
 
 void Terminal::setRootIdentifier(){
-	if (geteuid() == 0)
+	if (isRoot())
         root_identifier = '#';
     else
         root_identifier = '$';
