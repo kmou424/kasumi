@@ -58,7 +58,7 @@ void Terminal::welcomeToKasumi(){
 	int all_len;
 	int version_len;
 	int build_type_len;
-	banner = "│ Welcome to \033[31mkasumi\033[m      │";
+	banner = "│ Welcome to \033[31mkasumi\033[m            │";
 	all_len = banner.size() - 14;
 	header = "┌";
 	footer = "└";

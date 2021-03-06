@@ -1,11 +1,11 @@
 // kasumi attrs
 #define KASUMI_VERSION "1.0"
-#define KASUMI_SUBVERSION "2"
+#define KASUMI_SUBVERSION "2 [DEPRECATED]"
 
 #ifdef KASUMI_RELEASE_BUILD
-	#define KASUMI_BUILD_TYPE "Release";
+	#define KASUMI_BUILD_TYPE "[DEPRECATED]";
 #else
-	#define KASUMI_BUILD_TYPE "Debug";
+	#define KASUMI_BUILD_TYPE "[DEPRECATED]";
 #endif
 
 // kasumi runtime constants
