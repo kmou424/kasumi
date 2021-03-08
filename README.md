@@ -1,2 +1,3 @@
 # kasumi
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/51637d289640417588642f3ab573e89f)](https://app.codacy.com/gh/kmou424/kasumi?utm_source=github.com&utm_medium=referral&utm_content=kmou424/kasumi&utm_campaign=Badge_Grade_Settings)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/51637d289640417588642f3ab573e89f)](https://app.codacy.com/gh/kmou424/kasumi?utm_source=github.com&utm_medium=referral&utm_content=kmou424/kasumi&utm_campaign=Badge_Grade_Settings)
