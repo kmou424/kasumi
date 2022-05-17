@@ -51,35 +51,7 @@ class Console:
                 'lang': LANGUAGE
             }
             self.CONSOLE_MODULES[prog] = import_mod(prog).Module(args=args)
-
         ret = self.CONSOLE_MODULES[prog].exec(argv)
         if ret != 0:
             return self.SIGNAL_FAILED
-        # # command: add
-        # if exec_prog == 'add':
-        #     self.dl_list = CommandHelper.add(cmd_list, self.dl_list)
-        # # command: attrs
-        # elif exec_prog == 'attrs':
-        #     CommandHelper.attrs(cmd_list)
-        # # command: clear
-        # elif exec_prog == 'clear':
-        #     ConsoleHelper.clear()
-        # # command: delete
-        # elif exec_prog == 'delete':
-        #     self.dl_list = CommandHelper.delete(cmd_list, self.dl_list)
-        # # command: down
-        # elif exec_prog == 'down':
-        #     self.dl_list = CommandHelper.down(cmd_list, self.dl_list)
-        # # command: list
-        # elif exec_prog == 'list':
-        #     CommandHelper.list(cmd_list, self.dl_list)
-        # # command: set
-        # elif exec_prog == 'set':
-        #     self.dl_list = CommandHelper.set(cmd_list, self.dl_list)
-        # # command: star
-        # elif exec_prog == 'star':
-        #     self.dl_list = CommandHelper.star(cmd_list, self.dl_list)
-        # # command: help
-        # elif exec_prog == 'help':
-        #     ConsoleHelper.print_console_help(cmd_list)
         return Console.SIGNAL_CONTINUE

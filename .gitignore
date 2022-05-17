@@ -1,6 +1,7 @@
 __pycache__
 venv/*
 download/*
+Download/*
 test.py
 *.html
 *.cfg
