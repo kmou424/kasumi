@@ -12,6 +12,7 @@ class Module(ModuleWrapper):
         super().__init__(args)
         self.mod_name = "clear"
         self.mod_args = []
+        self.mod_author = "kmou424"
         self.mod_description = "Clear your screen"
         self.mod_version = "1.0"
         self.mod_version_code = 1

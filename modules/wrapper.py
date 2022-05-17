@@ -1,6 +1,7 @@
 class ModuleWrapper:
     mod_name = "default"
     mod_args = []
+    mod_author = "default"
     mod_description = "default"
     mod_version = "1.0-default"
     mod_version_code = 1

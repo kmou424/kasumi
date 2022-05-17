@@ -8,9 +8,11 @@ path_utils = import_api('path_utils')
 
 consts = import_consts()
 
+
 class Module(ModuleWrapper):
     mod_name = "help"
     mod_args = []
+    mod_author = "kmou424"
     mod_description = "Show help for command"
     mod_version = "1.0"
     mod_version_code = 1
@@ -48,6 +50,7 @@ class Module(ModuleWrapper):
         module = import_mod(argv[1]).Module({})
         print(">> Module Information")
         print("Name: " + module.mod_name)
+        print("Author: " + module.mod_author)
         print("Sub-arguments: " + ', '.join(module.mod_args))
         print("Description: " + module.mod_description)
         module.help()
