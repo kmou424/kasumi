@@ -39,6 +39,10 @@ class Module:
             print("{cmd}: Package is not found".format(cmd=prog))
             return -1
         module = import_mod(argv[1]).Module({})
+        print(">> Module Information")
+        print("Name: " + module.mod_name)
+        print("Sub-arguments: " + ', '.join(module.mod_args))
+        print("Description: " + module.mod_description)
         module.help()
 
         return 0
