@@ -1,11 +1,11 @@
 from pathlib import Path
 
+from apis.console_utils import parse_command
 from apis.path_utils import build_path
 from apis.string_utils import remove_prefix, remove_suffix
-from apis.console_utils import parse_command
 from config import LANGUAGE
-from libs.consts import PWD
-from modules.imports import import_mod
+from libs.consts import MODULE_PATHS
+from libs.imports import import_mod, set_module_path
 
 
 class Console:
@@ -39,12 +39,18 @@ class Console:
         if prog in Console._EXIT_CMD_LIST:
             return Console.SIGNAL_EXIT
 
+        found_prog = False
         # Check command module
-        package_path = Path(build_path([PWD, 'modules', 'bin', prog]))
-        package_init_path = Path(build_path([PWD, 'modules', 'bin', prog]) + '__init__' + '.py')
+        for i in MODULE_PATHS:
+            package_path = Path(build_path([i, 'modules', 'bin', prog]))
+            package_init_path = Path(build_path([i, 'modules', 'bin', prog]) + '__init__' + '.py')
+            if package_path.exists() and package_path.is_dir() and \
+                    package_init_path.exists() and package_init_path.is_file():
+                found_prog = True
+                set_module_path(i)
+                break
 
-        if (not package_path.exists() or not package_path.is_dir()) or \
-                (not package_init_path.exists() or not package_init_path.is_file()):
+        if not found_prog:
             print("{cmd}: Command not found".format(cmd=prog))
             return Console.SIGNAL_FAILED
 

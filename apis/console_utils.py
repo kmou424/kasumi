@@ -1,8 +1,9 @@
 import hashlib
 import os
+import platform
 import sys
 
-from libs.consts import SYSTEM_TYPE
+SYSTEM_TYPE = platform.system()
 
 Y_CMD_LIST = ['Y', 'y', 'yes']
 N_CMD_LIST = ['N', 'n', 'no']

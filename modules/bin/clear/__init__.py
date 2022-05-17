@@ -1,9 +1,9 @@
 import os
+import platform
 
-from modules.imports import import_consts
 from modules.wrapper import ModuleWrapper
 
-SYSTEM_TYPE = import_consts().SYSTEM_TYPE
+SYSTEM_TYPE = platform.system()
 
 
 class Module(ModuleWrapper):

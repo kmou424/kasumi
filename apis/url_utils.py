@@ -1,13 +1,8 @@
-import hashlib
-import os
-import shutil
-import stat
-import sys
+import platform
 from urllib.parse import urlparse
 
-import requests
 
-from libs.consts import SYSTEM_TYPE
+SYSTEM_TYPE = platform.system()
 
 
 class URLUtils:

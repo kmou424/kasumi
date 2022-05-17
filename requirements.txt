@@ -13,6 +13,7 @@ charset-normalizer==2.0.12  # via requests
 colorama==0.4.4           # via tqdm
 idna==3.3                 # via requests
 iso8601==1.0.2            # via m3u8
+lxml==4.8.0               # via -r requirements-in.txt
 m3u8==2.0.0               # via -r requirements-in.txt
 requests==2.27.1          # via -r requirements-in.txt
 soupsieve==2.3.2.post1    # via beautifulsoup4

@@ -1,4 +1,6 @@
-from libs.consts import SYSTEM_TYPE
+import platform
+
+SYSTEM_TYPE = platform.system()
 
 
 def build_path(paths: list):
