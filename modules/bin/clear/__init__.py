@@ -1,26 +1,27 @@
 import os
 
 from modules.imports import import_consts
+from modules.wrapper import ModuleWrapper
 
 SYSTEM_TYPE = import_consts().SYSTEM_TYPE
 
 
-class Module:
-    mod_name = "clear"
-    mod_args = []
-    mod_description = "Clear your screen"
+class Module(ModuleWrapper):
 
     def __init__(self, args: dict):
-        pass
+        super().__init__(args)
+        self.mod_name = "clear"
+        self.mod_args = []
+        self.mod_description = "Clear your screen"
+        self.mod_version = "1.0"
+        self.mod_version_code = 1
 
-    @staticmethod
-    def help():
+    def help(self):
         print("Usage: clear")
 
-    @staticmethod
-    def exec(argv: list):
+    def exec(self, argv: list):
         if len(argv) != 1:
-            Module.help()
+            self.help()
             return -1
         if SYSTEM_TYPE == "Windows":
             os.system("CLS")

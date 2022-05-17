@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from modules.imports import import_interface, import_consts, import_mod
+from modules.wrapper import ModuleWrapper
 
 interface = import_interface()
 
@@ -9,25 +10,25 @@ PathUtils = interface.PathUtils
 consts = import_consts()
 
 
-class Module:
+class Module(ModuleWrapper):
     mod_name = "help"
     mod_args = []
     mod_description = "Show help for command"
+    mod_version = "1.0"
+    mod_version_code = 1
 
     def __init__(self, args: dict):
-        pass
+        super().__init__(args)
 
-    @staticmethod
-    def help():
+    def help(self):
         print("Usage: help [command]")
 
-    @staticmethod
-    def exec(argv: list):
+    def exec(self, argv: list):
         if len(argv) == 1:
-            Module.help()
+            self.help()
             return 0
         if len(argv) != 2:
-            Module.help()
+            self.help()
             return -1
         # Check command module
         prog = argv[0]
