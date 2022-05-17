@@ -1,0 +1,7 @@
+__pycache__
+venv/*
+download/*
+test.py
+*.html
+*.cfg
+*.conf
