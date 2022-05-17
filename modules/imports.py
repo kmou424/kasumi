@@ -15,8 +15,8 @@ def import_lib(module: str, lib: str):
     return __import(f'modules.bin.{module}.' + lib)
 
 
-def import_interface():
-    return __import('libs.interface')
+def import_api(api: str):
+    return __import(f'apis.{api}')
 
 
 def import_config():

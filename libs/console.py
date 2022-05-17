@@ -1,8 +1,10 @@
 from pathlib import Path
 
+from apis.path_utils import build_path
+from apis.string_utils import remove_prefix, remove_suffix
+from apis.console_utils import parse_command
 from config import LANGUAGE
 from libs.consts import PWD
-from libs.interface import StringUtils, ConsoleUtils, PathUtils
 from modules.imports import import_mod
 
 
@@ -21,11 +23,11 @@ class Console:
     def exec(self, cmd: str) -> int:
         # Clean up command
         while cmd.startswith(' '):
-            cmd = StringUtils.remove_prefix(cmd, ' ')
+            cmd = remove_prefix(cmd, ' ')
         while cmd.endswith(' '):
-            cmd = StringUtils.remove_suffix(cmd, ' ')
+            cmd = remove_suffix(cmd, ' ')
         # Parse command in to argv list
-        argv = ConsoleUtils.parse_command(cmd)
+        argv = parse_command(cmd)
         if argv is None:
             print("Syntax error")
             return Console.SIGNAL_FAILED
@@ -38,8 +40,8 @@ class Console:
             return Console.SIGNAL_EXIT
 
         # Check command module
-        package_path = Path(PathUtils.build_path([PWD, 'modules', 'bin', prog]))
-        package_init_path = Path(PathUtils.build_path([PWD, 'modules', 'bin', prog]) + '__init__' + '.py')
+        package_path = Path(build_path([PWD, 'modules', 'bin', prog]))
+        package_init_path = Path(build_path([PWD, 'modules', 'bin', prog]) + '__init__' + '.py')
 
         if (not package_path.exists() or not package_path.is_dir()) or \
                 (not package_init_path.exists() or not package_init_path.is_file()):

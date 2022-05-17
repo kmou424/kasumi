@@ -1,11 +1,9 @@
 from pathlib import Path
 
-from modules.imports import import_interface, import_consts, import_mod
+from modules.imports import import_api, import_consts, import_mod
 from modules.wrapper import ModuleWrapper
 
-interface = import_interface()
-
-PathUtils = interface.PathUtils
+path_utils = import_api('path_utils')
 
 consts = import_consts()
 
@@ -32,8 +30,8 @@ class Module(ModuleWrapper):
             return -1
         # Check command module
         prog = argv[0]
-        package_path = Path(PathUtils.build_path([consts.PWD, 'modules', 'bin', argv[1]]))
-        package_init_path = Path(PathUtils.build_path([consts.PWD, 'modules', 'bin', argv[1]]) + '__init__' + '.py')
+        package_path = Path(path_utils.build_path([consts.PWD, 'modules', 'bin', argv[1]]))
+        package_init_path = Path(path_utils.build_path([consts.PWD, 'modules', 'bin', argv[1]]) + '__init__' + '.py')
 
         if (not package_path.exists() or not package_path.is_dir()) or \
                 (not package_init_path.exists() or not package_init_path.is_file()):
